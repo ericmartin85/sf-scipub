@@ -1,0 +1,69 @@
+ProductBundle\Entity\Product:
+    properties:
+        designation:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 255
+        price:
+            - NotBlank: ~
+            - GreaterThan: 0
+            - Type: numeric
+        stock:
+            - NotBlank: ~
+            - GreaterThan: 0
+            - Type: numeric
+        category:
+            - NotNull: ~
+        attributes:
+            - Count:
+                min: 1
+        seo:
+            - NotNull: ~
+            - Valid: ~
+    constraints:
+        - ProductBundle\Validator\Constraints\Product: ~
+
+ProductBundle\Entity\Seo:
+    properties:
+        title:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 255
+        description:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 255
+
+ProductBundle\Entity\Category:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 255
+        seo:
+            - NotNull: ~
+            - Valid: ~
+        attributeGroup:
+            - NotNull: ~
+
+ProductBundle\Entity\Attriute:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 64
+        attributeGroup:
+            - NotNull: ~
+
+ProductBundle\Entity\AttriuteGroup:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 64

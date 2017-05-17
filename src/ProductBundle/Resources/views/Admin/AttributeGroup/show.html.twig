@@ -1,0 +1,37 @@
+{% extends 'ProductBundle:Admin:base.html.twig' %}
+
+{% block content %}
+    <h1>Attributegroup</h1>
+    <hr>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ attributeGroup.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ attributeGroup.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('admin_attribute_group_index') }}" class="btn btn-sm btn-default">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('admin_attribute_group_edit', { 'id': attributeGroup.id }) }}"
+                class="btn btn-sm btn-warning">
+                Edit
+            </a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

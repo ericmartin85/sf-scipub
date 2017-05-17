@@ -1,0 +1,15 @@
+logout:
+    path: /logout
+
+login:
+    path: /login
+    defaults:
+        _controller: ProductBundle:Security:login
+
+admin:
+    resource: routing/admin.yml
+    prefix:   /admin
+
+page:
+    resource: routing/page.yml
+

@@ -1,0 +1,53 @@
+{% extends 'ProductBundle:Admin:base.html.twig' %}
+
+{% block content %}
+    <h1>Product</h1>
+    <hr>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td>{{ product.designation }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ product.price }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ product.stock }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if product.createdAt %}{{ product.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('admin_product_index') }}" class="btn btn-sm btn-default">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('admin_product_edit', { 'id': product.id }) }}"
+                class="btn btn-sm btn-warning">
+                Edit
+            </a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

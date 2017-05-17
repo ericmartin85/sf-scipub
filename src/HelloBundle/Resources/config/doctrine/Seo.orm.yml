@@ -1,0 +1,17 @@
+HelloBundle\Entity\Seo:
+    type: entity
+    table: hello_seo
+    repositoryClass: HelloBundle\Repository\SeoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+    lifecycleCallbacks: {  }

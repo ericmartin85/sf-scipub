@@ -1,0 +1,19 @@
+HelloBundle\Entity\Tag:
+    type: entity
+    table: hello_tag
+    repositoryClass: HelloBundle\Repository\TagRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '32'
+    manyToMany:
+        posts:
+            targetEntity: HelloBundle\Entity\Post
+            mappedBy: tags
+    lifecycleCallbacks: {  }

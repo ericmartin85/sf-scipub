@@ -1,0 +1,48 @@
+ProductBundle\Entity\Product:
+    type: entity
+    table: null
+    repositoryClass: ProductBundle\Repository\ProductRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        designation:
+            type: string
+            length: 255
+        description:
+            type: text
+            nullable: true
+        price:
+            type: decimal
+            precision: 10
+            scale: '2'
+        stock:
+            type: integer
+        createdAt:
+            type: datetime
+        slug:
+            type: string
+            length: 255
+    oneToOne:
+        seo:
+          targetEntity: ProductBundle\Entity\Seo
+          cascade: ['persist', 'remove']
+    manyToOne:
+        category:
+            targetEntity: ProductBundle\Entity\Category
+            inversedBy: products
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+                nullable: false
+                onDelete: RESTRICT
+    manyToMany:
+        attributes:
+            targetEntity: ProductBundle\Entity\Attribute
+            inversedBy: products
+    lifecycleCallbacks:
+        prePersist: [onPrePersist]
+        preUpdate: [onPreUpdate]

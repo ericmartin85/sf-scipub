@@ -1,0 +1,22 @@
+admin_dashboard:
+    path: /
+    defaults:
+        _controller: ProductBundle:Admin/Dashboard:index
+
+admin_attribute_group:
+    resource: admin/attribute-group.yml
+    prefix:   /attribute-group
+
+admin_attribute:
+    resource: admin/attribute.yml
+    prefix:   /attribute
+
+admin_category:
+      resource: admin/category.yml
+      prefix:   /category
+
+admin_product:
+    resource: admin/product.yml
+    prefix:   /product
+
+

@@ -1,0 +1,21 @@
+HelloBundle\Entity\Author:
+    type: entity
+    table: hello_author
+    repositoryClass: HelloBundle\Repository\AuthorRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        bio:
+            type: text
+    oneToMany:
+        posts:
+            targetEntity: HelloBundle\Entity\Post
+            mappedBy: author
+    lifecycleCallbacks: {  }

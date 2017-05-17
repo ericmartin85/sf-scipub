@@ -1,0 +1,28 @@
+ProductBundle\Entity\Attribute:
+    type: entity
+    table: null
+    repositoryClass: ProductBundle\Repository\AttributeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 64
+            unique: true
+    manyToOne:
+        attributeGroup:
+            targetEntity: ProductBundle\Entity\AttributeGroup
+            joinColumn:
+                name: attribute_group_id
+                referencedColumnName: id
+                nullable: false
+                onDelete: RESTRICT
+    manyToMany:
+        products:
+            targetEntity: ProductBundle\Entity\Product
+            mappedBy: attributes
+    lifecycleCallbacks: {  }

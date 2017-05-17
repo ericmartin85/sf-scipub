@@ -1,0 +1,16 @@
+ProductBundle\Entity\AttributeGroup:
+    type: entity
+    table: null
+    repositoryClass: ProductBundle\Repository\AttributeGroupRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 64
+            unique: true
+    lifecycleCallbacks: {  }

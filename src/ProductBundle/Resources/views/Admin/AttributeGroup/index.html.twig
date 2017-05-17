@@ -1,0 +1,53 @@
+{% extends 'ProductBundle:Admin:base.html.twig' %}
+
+{% block content %}
+    <h1>Attributegroups list</h1>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-stripped table-condensed">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for attributeGroup in attributeGroups %}
+                <tr>
+                    <td>
+                        <a href="{{ path('admin_attribute_group_show', { 'id': attributeGroup.id }) }}">
+                            {{ attributeGroup.id }}
+                        </a>
+                    </td>
+                    <td>{{ attributeGroup.name }}</td>
+                    <td>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="{{ path('admin_attribute_group_show', { 'id': attributeGroup.id }) }}"
+                                    class="btn btn-xs btn-primary">
+                                    Show
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_attribute_group_edit', { 'id': attributeGroup.id }) }}"
+                                    class="btn btn-xs btn-warning">
+                                    Edit
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('admin_attribute_group_new') }}" class="btn btn-sm btn-success">
+                Create a new attributeGroup
+            </a>
+        </li>
+    </ul>
+{% endblock %}

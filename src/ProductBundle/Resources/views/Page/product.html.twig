@@ -1,0 +1,40 @@
+{% extends "ProductBundle::base.html.twig" %}
+
+
+{% block seo %}
+    <title>{{ product.seo.title }}</title>
+    <meta name="description" content="{{ product.seo.description }}">
+{% endblock seo %}
+
+
+{% block content %}
+<h1>{{ product.designation }}</h1>
+<table>
+    <tr>
+        <th>Désignation</th>
+        <td>{{ product.description }}</td>
+    </tr>
+    <tr>
+        <th>Attributs</th>
+        <td>
+            <ul>
+            {% for attribute in product.attributes %}
+                <li>{{ attribute.name }}</li>
+            {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th>Prix</th>
+        <td>{{ product.price|number_format(2, ',', ' ') }}</td>
+    </tr>
+    <tr>
+        <th>Stock</th>
+        <td>{{ product.stock }}</td>
+    </tr>
+    <tr>
+        <th>Date de création</th>
+        <td>{{ product.createdAt|date('d/m/Y') }}</td>
+    </tr>
+</table>
+{% endblock content %}

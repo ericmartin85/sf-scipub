@@ -1,0 +1,36 @@
+ProductBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: ProductBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        slug:
+            type: string
+            length: 255
+    oneToOne:
+        seo:
+          targetEntity: ProductBundle\Entity\Seo
+          cascade: ['persist', 'remove']
+    oneToMany:
+        products:
+            targetEntity: ProductBundle\Entity\Product
+            mappedBy: category
+    manyToOne:
+        attributeGroup:
+            targetEntity: ProductBundle\Entity\AttributeGroup
+            joinColumn:
+                name: attribute_group_id
+                referencedColumnName: id
+                nullable: false
+                onDelete: RESTRICT
+    lifecycleCallbacks:
+        prePersist: [onPrePersist]
+        preUpdate: [onPreUpdate]

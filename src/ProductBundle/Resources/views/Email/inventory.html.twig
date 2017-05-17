@@ -1,0 +1,24 @@
+<html>
+<body>
+
+    <h1>Produits en rupture</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Désignation</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <th>{{ product.designation }}</th>
+                <th>{{ product.stock }}</th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

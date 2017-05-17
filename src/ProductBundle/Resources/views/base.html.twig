@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <link href="{{ asset('bundles/product/styles.css') }}" rel="stylesheet">
+
+    {% block seo %}
+        <title>Super site</title>
+    {% endblock seo %}
+</head>
+<body>
+
+    {% include "ProductBundle::header.html.twig" %}
+
+    {% include "ProductBundle:Admin/Layout:flashes.html.twig" %}
+
+    <hr>
+
+    {% block content %}
+
+    {% endblock content %}
+
+</body>
+</html>

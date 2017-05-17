@@ -1,0 +1,12 @@
+page_home:
+    path:     /
+    defaults: { _controller: ProductBundle:Page:home }
+
+page_category:
+    path: /{categorySlug}
+    defaults: { _controller: ProductBundle:Page:category }
+
+page_product:
+    path: /{categorySlug}/{productSlug}
+    defaults:
+        _controller: ProductBundle:Page:product

@@ -1,0 +1,17 @@
+parameters:
+    admin_email: 'contact@ekyna.com'
+
+services:
+
+    product.inventory.notifier:
+        class: ProductBundle\Service\InventoryNotifier
+        arguments:
+            - '@product.inventory.checker'
+            - '@templating'
+            - '@mailer'
+            - '%admin_email%'
+
+    product.inventory.checker:
+        class: ProductBundle\Service\InventoryChecker
+        arguments:
+            - '@doctrine.orm.entity_manager'

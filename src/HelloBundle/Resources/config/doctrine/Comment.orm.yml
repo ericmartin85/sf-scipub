@@ -1,0 +1,23 @@
+HelloBundle\Entity\Comment:
+    type: entity
+    table: hello_comment
+    repositoryClass: HelloBundle\Repository\CommentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        pseudo:
+            type: string
+            length: '32'
+        message:
+            type: text
+        date:
+            type: datetime
+    manyToOne:
+        post:
+            targetEntity: HelloBundle\Entity\Post
+            inversedBy: comments
+    lifecycleCallbacks: {  }

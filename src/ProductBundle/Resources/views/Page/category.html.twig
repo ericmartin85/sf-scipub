@@ -1,0 +1,25 @@
+{% extends "ProductBundle::base.html.twig" %}
+
+
+{% block seo %}
+    <title>{{ category.seo.title }}</title>
+    <meta name="description" content="{{ category.seo.description }}">
+{% endblock seo %}
+
+
+{% block content %}
+<h1>{{ category.name }}</h1>
+<ul>
+    {% for product in category.products %}
+    <li>
+        <a href="{{ path('page_product', {
+            'categorySlug': category.slug,
+            'productSlug': product.slug
+        }) }}">
+            {{ product.designation }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
+

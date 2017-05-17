@@ -1,0 +1,19 @@
+{% extends "ProductBundle::base.html.twig" %}
+
+{% block content %}
+
+<h1>Accueil</h1>
+<p>Liste des catégories</p>
+<ul>
+    {% for category in category_list %}
+    <li>
+        <a href="{{ path('page_category', {
+            'categorySlug': category.slug
+        }) }}">
+            {{ category.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
